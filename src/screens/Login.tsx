@@ -12,7 +12,6 @@ class Login extends React.Component<LoginProps, LoginState> {
   render() {
     return (
       <div className="login-form-container">
-        <div id="close-login-btn" className="fas fa-times"></div>
 
         <form action="">
           <h3>sign in</h3>

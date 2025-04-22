@@ -11,42 +11,42 @@ const Login = lazy(() => import("../screens/Login")); // Assuming you have a Log
 
 // PrivateRoute component to handle authentication
 const PrivateRoute = ({ children }: { children: React.ReactNode }) => {
-    const { token } = useSelector((store: RootState) => store.Auth);
-    return token ? <>{children}</> : <Navigate to="/login" />;
+  const { token } = useSelector((store: RootState) => store.Auth);
+  return token ? <>{children}</> : <Navigate to="/login" />;
 };
 
 // PublicRoute component to handle unauthenticated routes
 const PublicRoute = ({ children }: { children: React.ReactNode }) => {
-    const { token } = useSelector((store: RootState) => store.Auth);
-    return !token ? <>{children}</> : <Navigate to="/" />;
+  const { token } = useSelector((store: RootState) => store.Auth);
+  return !token ? <>{children}</> : <Navigate to="/" />;
 };
 
 const MainRoutes = () => {
-    return (
-        <Suspense fallback={<Loader />}>
-            <Routes>
-                <Route path="/" element={<Layout />}>
-                    <Route
-                        index
-                        element={
-                            <PrivateRoute>
-                                <Dashboard />
-                            </PrivateRoute>
-                        }
-                    />
-                </Route>
-                <Route
-                    path="/login"
-                    element={
-                        <PublicRoute>
-                            <Login />
-                        </PublicRoute>
-                    }
-                />
-                <Route path="*" element={<Navigate to="/" />} />
-            </Routes>
-        </Suspense>
-    );
+  return (
+    <Suspense fallback={<Loader />}>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route
+            index
+            element={
+              <PrivateRoute>
+                <Dashboard />
+              </PrivateRoute>
+            }
+          />
+        </Route>
+        <Route
+          path="/login"
+          element={
+            <PublicRoute>
+              <Login />
+            </PublicRoute>
+          }
+        />
+        <Route path="*" element={<Navigate to="/" />} />
+      </Routes>
+    </Suspense>
+  );
 };
 
 export default MainRoutes;
