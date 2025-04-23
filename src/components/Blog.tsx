@@ -47,14 +47,19 @@ function Blog() {
         <Swiper
           spaceBetween={20}
           slidesPerView={3}
+          breakpoints={{
+            0: { slidesPerView: 1 },
+            768: { slidesPerView: 2 },
+            1024: { slidesPerView: 3 },
+          }}
           loop={true}
           autoplay={{ delay: 3000 }}
           onSlideChange={() => console.log("Slide changed")}
-          onSwiper={(swiper: {}) => {}}
+          onSwiper={(swiper:{}) => console.log(swiper)}
         >
           {blogData.map((blog) => (
             <SwiperSlide key={blog.id}>
-              <div className="swiper-slide box" key={blog.id}>
+              <div className="box">
                 <div className="image">
                   <img src={blog.imageLink} alt={blog.title} />
                 </div>

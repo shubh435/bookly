@@ -84,6 +84,11 @@ class Dashboard extends React.Component<DashboardProps, DashboardState> {
             <div className="swiper books-slider">
               <Swiper
                 spaceBetween={20}
+                breakpoints={{
+                  0: { slidesPerView: 1 },
+                  768: { slidesPerView: 2 },
+                  1024: { slidesPerView: 3 },
+                }}
                 slidesPerView={3}
                 loop={true}
                 autoplay={{ delay: 3000 }}

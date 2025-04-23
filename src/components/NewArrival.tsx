@@ -59,6 +59,11 @@ function NewArrival() {
           spaceBetween={20}
           slidesPerView={3}
           loop={true}
+          breakpoints={{
+            0: { slidesPerView: 1 },
+            768: { slidesPerView: 2 },
+            1024: { slidesPerView: 3 },
+          }}
           autoplay={{ delay: 3000 }}
           onSlideChange={() => console.log("Slide changed")}
           onSwiper={(swiper: {}) => {}}
@@ -91,7 +96,11 @@ function NewArrival() {
       <div className="swiper arrivals-slider">
 
         <Swiper 
-          
+           breakpoints={{
+            0: { slidesPerView: 1 },
+            768: { slidesPerView: 2 },
+            1024: { slidesPerView: 3 },
+          }}
           spaceBetween={20}
           slidesPerView={3}
           loop={true}

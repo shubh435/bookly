@@ -71,6 +71,11 @@ function ClientTestimonial() {
         <Swiper
           spaceBetween={20}
           slidesPerView={3}
+          breakpoints={{
+            0: { slidesPerView: 1 },
+            768: { slidesPerView: 2 },
+            1024: { slidesPerView: 3 },
+          }}
           loop={true}
           autoplay={{ delay: 3000 }}
           onSlideChange={() => console.log("Slide changed")}
