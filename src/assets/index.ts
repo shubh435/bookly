@@ -1,6 +1,29 @@
-import blog1 from "./images/blog-1.jpg"
 import loaderImg from "./images/loader-img.gif"
 import worldMap from "./images//worldmap.png"
+import book1 from "./images/book-1.png"
+import book2 from "./images/book-2.png"
+import book3 from "./images/book-3.png"
+import book4 from "./images/book-4.png"
+import book5 from "./images/book-5.png"
+import book6 from "./images/book-6.png"
+import book7 from "./images/book-7.png"
+import book8 from "./images/book-8.png"
+import book9 from "./images/book-9.png"
+import book10 from "./images/book-10.png"
+import standImage from "./images/stand.png"
+import dealImage from "./images/deal-img.jpg"
+import user1 from "./images/pic-1.png"
+import user2 from "./images/pic-2.png"
+import user3 from "./images/pic-3.png"
+import user4 from "./images/pic-4.png"
+import user5 from "./images/pic-5.png"
+import user6 from "./images/pic-6.png"
+import blog1 from "./images/blog-1.jpg"
+import blog3 from "./images/blog-3.jpg"
+import blog2 from "./images/blog-2.jpg"
+import blog4 from "./images/blog-4.jpg"
+import blog5 from "./images/blog-5.jpg"
 
 
-export {blog1,loaderImg,worldMap};
+
+export { blog1, loaderImg, worldMap, book1, book2, book3, book4, book5, book6, standImage, book7, book8, book9, book10, dealImage, user1, user2, user3, user4, user5, user6, blog5, blog4, blog3, blog2 };

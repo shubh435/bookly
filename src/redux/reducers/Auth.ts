@@ -1,5 +1,5 @@
-import {createSlice, createAsyncThunk} from '@reduxjs/toolkit';
-import {endpoints} from '../../config/config';
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import { endpoints } from '../../config/config';
 import networkCall from '../../utils/networkCall';
 
 export interface authDataType {
@@ -12,26 +12,30 @@ export interface authDataType {
 const initialState: authDataType = {
   message: null,
   loading: false,
-  token: null,
+  token: localStorage.getItem("token") ?? null,
   userRole: 1
 };
 
 export const loginAction = createAsyncThunk(
   'loginAction',
   async (
-    {username, password}: {username: string; password: string},
-    {getState, rejectWithValue, fulfillWithValue},
+    { username, password }: { username: string; password: string },
+    { getState, rejectWithValue, fulfillWithValue },
   ) => {
     const data = {
       username,
       password,
     };
-    const {response, error} = await networkCall(endpoints.LOGIN, "POST", JSON.stringify(data));
-    if (response) {
-      return fulfillWithValue(response);
-    } else {
-      return rejectWithValue('Something went wrong!');
-    }
+
+    //  return  "token"
+    // const {response, error} = await networkCall(endpoints.LOGIN, "POST", JSON.stringify(data));
+    // if (response) {
+    const token = "token";
+    localStorage.setItem("token", token)
+    return fulfillWithValue({ token: token });
+    // } else {
+    //   return rejectWithValue('Something went wrong!');
+    // }
   },
 );
 
@@ -60,6 +64,6 @@ export const AuthSlice = createSlice({
   },
 });
 
-export const {actionLogout} = AuthSlice.actions;
+export const { actionLogout } = AuthSlice.actions;
 
 export default AuthSlice.reducer;

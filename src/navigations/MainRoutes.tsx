@@ -5,17 +5,14 @@ import Layout from "../components/Layout";
 import { useSelector } from "react-redux";
 import { RootState } from "../redux/store";
 
-// Lazy load the Dashboard component
 const Dashboard = lazy(() => import("../screens/Dashboard"));
-const Login = lazy(() => import("../screens/Login")); // Assuming you have a Login screen
+const Login = lazy(() => import("../screens/Login"));
 
-// PrivateRoute component to handle authentication
 const PrivateRoute = ({ children }: { children: React.ReactNode }) => {
   const { token } = useSelector((store: RootState) => store.Auth);
   return token ? <>{children}</> : <Navigate to="/login" />;
 };
 
-// PublicRoute component to handle unauthenticated routes
 const PublicRoute = ({ children }: { children: React.ReactNode }) => {
   const { token } = useSelector((store: RootState) => store.Auth);
   return !token ? <>{children}</> : <Navigate to="/" />;
