@@ -148,7 +148,7 @@ class Dashboard extends React.Component<DashboardProps, DashboardState> {
 
         <section className="deal">
           <div className="content">
-            <h3>deal of the day</h3>
+            <h3 className="text-red-400">deal of the day</h3>
             <h1>upto 50% off</h1>
             <p>
               Lorem ipsum dolor sit amet consectetur, adipisicing elit. Unde
